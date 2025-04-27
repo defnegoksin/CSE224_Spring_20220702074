@@ -1,0 +1,56 @@
+#! /opt/homebrew/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+S_0x12d604ea0 .scope module, "tb_twos_complement" "tb_twos_complement" 2 3;
+ .timescale -9 -12;
+v0x6000013e8510_0 .var "in", 7 0;
+v0x6000013e85a0_0 .net "out", 7 0, L_0x6000010e8000;  1 drivers
+S_0x12d604860 .scope module, "uut" "twos_complement" 2 7, 3 1 0, S_0x12d604ea0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 8 "in";
+    .port_info 1 /OUTPUT 8 "out";
+L_0x600000ae8540 .functor NOT 8, v0x6000013e8510_0, C4<00000000>, C4<00000000>, C4<00000000>;
+v0x6000013e82d0_0 .net *"_ivl_0", 7 0, L_0x600000ae8540;  1 drivers
+L_0x130078010 .functor BUFT 1, C4<00000001>, C4<0>, C4<0>, C4<0>;
+v0x6000013e8360_0 .net/2u *"_ivl_2", 7 0, L_0x130078010;  1 drivers
+v0x6000013e83f0_0 .net "in", 7 0, v0x6000013e8510_0;  1 drivers
+v0x6000013e8480_0 .net "out", 7 0, L_0x6000010e8000;  alias, 1 drivers
+L_0x6000010e8000 .arith/sum 8, L_0x600000ae8540, L_0x130078010;
+    .scope S_0x12d604ea0;
+T_0 ;
+    %vpi_call 2 13 "$dumpfile", "twos_complement.vcd" {0 0 0};
+    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x12d604ea0 {0 0 0};
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v0x6000013e8510_0, 0, 8;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 8;
+    %store/vec4 v0x6000013e8510_0, 0, 8;
+    %delay 10000, 0;
+    %pushi/vec4 5, 0, 8;
+    %store/vec4 v0x6000013e8510_0, 0, 8;
+    %delay 10000, 0;
+    %pushi/vec4 127, 0, 8;
+    %store/vec4 v0x6000013e8510_0, 0, 8;
+    %delay 10000, 0;
+    %pushi/vec4 128, 0, 8;
+    %store/vec4 v0x6000013e8510_0, 0, 8;
+    %delay 10000, 0;
+    %pushi/vec4 255, 0, 8;
+    %store/vec4 v0x6000013e8510_0, 0, 8;
+    %delay 10000, 0;
+    %delay 10000, 0;
+    %vpi_call 2 25 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_twos_complement.v";
+    "twos_complement.v";
