@@ -1,0 +1,13 @@
+{
+    "design_name": "project3",
+    "source_files": [
+        "src/seven_segment_decoder.v"
+    ],
+    "top_module": "SevenSegmentDecoder",
+    "clock_period": 0,
+    "clock_port": "",
+    "power_ports": [
+        "vdd",
+        "gnd"
+    ]
+}
